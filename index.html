@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Landing Peinture – Devis rapide</title>
+  <meta name="description" content="Demandez un devis de peinture rapidement. Intervention propre, délais tenus, finitions soignées." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <div class="brand">
+        <div class="brand__logo">🖌️</div>
+        <div>
+          <div class="brand__name">Peinture d’atterrissage</div>
+          <div class="brand__tag">Devis peinture • Réponse rapide</div>
+        </div>
+      </div>
+
+      <a class="btn btn--ghost" href="#devis">Demander un devis</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__grid">
+        <div>
+          <span class="pill">✅ Artisan • ✅ Finitions soignées • ✅ Délais tenus</span>
+          <h1>Votre devis peinture en 2 minutes</h1>
+          <p class="lead">
+            Intérieur / extérieur, appartement, maison, plafonds, façades…  
+            Dites-moi ce que vous voulez faire, je vous réponds rapidement.
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn" href="#devis">Obtenir mon devis</a>
+            <a class="btn btn--ghost" href="#services">Voir les services</a>
+          </div>
+
+          <ul class="checks">
+            <li>✔ Visite & estimation (si besoin)</li>
+            <li>✔ Protection des sols / chantier propre</li>
+            <li>✔ Conseils couleurs & finitions</li>
+          </ul>
+        </div>
+
+        <aside class="card" id="devis">
+          <h2>Demande de devis</h2>
+          <p class="small">Remplis et clique sur “Envoyer”.</p>
+
+          <form class="form" onsubmit="return handleSubmit(event)">
+            <label>
+              Nom
+              <input required name="nom" placeholder="Nicolas Pluchart" />
+            </label>
+
+            <label>
+              Téléphone
+              <input required name="tel" placeholder="06 xx xx xx xx" />
+            </label>
+
+            <label>
+              Email
+              <input required type="email" name="email" placeholder="style.deco66@gmail.com" />
+            </label>
+
+            <label>
+              Type de chantier
+              <select name="type">
+                <option>Intérieur</option>
+                <option>Extérieur</option>
+                <option>Façade</option>
+                <option>Plafonds</option>
+                <option>Autre</option>
+              </select>
+            </label>
+
+            <label>
+              Message (surface, pièces, ville…)
+              <textarea required name="message" rows="4" placeholder="Ex: 65m², salon + 2 chambres, Perpignan, peinture blanche mat."></textarea>
+            </label>
+
+            <button class="btn btn--full" type="submit">Envoyer ma demande</button>
+
+            <p class="tiny" id="result" aria-live="polite"></p>
+          </form>
+
+          <div class="contact-mini">
+            <div><strong>Réponse :</strong> rapide</div>
+            <div><strong>Zone :</strong> à préciser</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="services">
+      <div class="container">
+        <h2>Services</h2>
+        <div class="grid3">
+          <div class="box">
+            <h3>Peinture intérieure</h3>
+            <p>Murs, plafonds, boiseries, préparation, enduits, ponçage.</p>
+          </div>
+          <div class="box">
+            <h3>Peinture extérieure</h3>
+            <p>Volets, portails, boiseries, protections et finitions durables.</p>
+          </div>
+          <div class="box">
+            <h3>Façades</h3>
+            <p>Nettoyage, réparations, impression, peinture adaptée au support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Questions fréquentes</h2>
+
+        <details class="faq">
+          <summary>Combien de temps pour un devis ?</summary>
+          <p>Souvent le jour même ou sous 24h (selon les infos fournies).</p>
+        </details>
+
+        <details class="faq">
+          <summary>Est-ce que vous vous déplacez ?</summary>
+          <p>Oui, si nécessaire pour valider les surfaces et l’état des supports.</p>
+        </details>
+
+        <details class="faq">
+          <summary>Vous fournissez la peinture ?</summary>
+          <p>Oui, ou possibilité de travailler avec la vôtre (à valider ensemble).</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span id="year"></span> Peinture d’atterrissage</div>
+      <div><a href="#devis">Demander un devis</a></div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function handleSubmit(e){
+      e.preventDefault();
+      const out = document.getElementById("result");
+      out.textContent = "✅ Formulaire prêt. (Pour l’envoi réel, on branchera EmailJS / Formspree / serveur.)";
+      return false;
+    }
+  </script>
+</body>
+</html>
